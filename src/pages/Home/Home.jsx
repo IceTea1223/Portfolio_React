@@ -252,7 +252,8 @@ export default function Home() {
                         {/* Main image container */}
                         <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full overflow-hidden border-4 border-white shadow-xl animate-glow">
                           <img
-                            src="../../assets/images/myimage.JPG"
+                            // src="../../assets/images/myimage.JPG"
+                            src="https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/577919989_1525348672046533_196920429385416654_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeF5EIxJcie6tgxceMbKcvfCySOyCqDufhrJI7IKoO5-Ghcl_gFFXGpylZa3GfXs-v46Br6W9Zx7VigbNVJD5uW2&_nc_ohc=Q-FTYySN4PIQ7kNvwGLTC18&_nc_oc=AdnIWA76zjNl7XJ_FaIsTK9bdvs0h1H_dr4Ph_9HbjlHcJkCmuAkzC5Td38prgV9w18&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=RlM8yVMyKnVjNS-bDnH3ww&oh=00_AflzP33N_gFxI5zExrwL02MKOo3wen2ODECH1bEDEwkaDQ&oe=69471057"
                             alt="HONG KIMCHHAY"
                             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                             loading="lazy"
