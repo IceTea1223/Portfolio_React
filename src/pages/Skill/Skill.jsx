@@ -3,32 +3,23 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Code,
-  Database,
   Palette,
   Cloud,
   Server,
-  Smartphone,
-  GitBranch,
-  Terminal,
-  Shield,
   Layers,
   Zap,
-  CheckCircle,
-  Star,
-  TrendingUp,
   Search,
   Filter,
-  ExternalLink,
   Sparkles,
   Award,
   Target,
   Cpu,
 } from "lucide-react";
-import "./skill.css";
+
 import CTA from "../../conponent/CTA/CTA";
 import Footer from "../../conponent/Footer/Footer";
-import skillsData from "../../Data/skills";
-export default function Skills() {
+import skillsData from "../../Data/skills.js";
+export default function Skill() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
