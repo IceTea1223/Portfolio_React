@@ -1,0 +1,311 @@
+/* Contact.css - Custom Animations & Styles */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Form input focus effects */
+.form-input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1),
+              0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Error animation */
+.error-input {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Success message animation */
+.success-message {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact card hover effects */
+.contact-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card:hover .contact-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.contact-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Social media button hover effects */
+.social-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* FAQ card hover */
+.faq-card {
+  transition: all 0.3s ease;
+}
+
+.faq-card:hover {
+  transform: translateX(4px);
+  border-color: #3b82f6;
+}
+
+/* Submit button loading animation */
+.submit-button:disabled {
+  cursor: not-allowed;
+}
+
+.submit-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Map marker animation */
+.map-marker {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Calendar booking card glow */
+.calendar-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  animation: slide 3s linear infinite;
+}
+
+@keyframes slide {
+  100% {
+    transform: translateX(50%) translateY(50%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .social-button {
+    flex: 1 0 auto;
+    min-width: 120px;
+  }
+  
+  .form-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-container {
+    height: 300px;
+    margin-bottom: 2rem;
+  }
+  
+  .faq-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .contact-card {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: #334155;
+  }
+  
+  .form-input {
+    background: #1e293b;
+    border-color: #475569;
+    color: #f8fafc;
+  }
+  
+  .form-input:focus {
+    border-color: #3b82f6;
+  }
+  
+  .calendar-card {
+    background: linear-gradient(to right, #1e3a8a, #1e40af);
+  }
+}
+
+/* Loading spinner animation */
+.spinner {
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Floating action buttons */
+.floating-action {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  animation: float 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .floating-action {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Input label animations */
+.input-label {
+  transition: all 0.2s ease;
+}
+
+.form-input:focus + .input-label {
+  color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+/* Textarea auto-resize animation */
+textarea {
+  transition: height 0.2s ease;
+}
+
+/* Contact info link hover */
+.contact-link {
+  transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+  transform: translateX(4px);
+}
+
+/* Mobile touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .contact-card:hover {
+    transform: none;
+  }
+  
+  .social-button:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .faq-card:hover {
+    transform: none;
+  }
+}
+
+/* Scroll animations */
+.contact-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.contact-section:nth-child(1) { animation-delay: 0.1s; }
+.contact-section:nth-child(2) { animation-delay: 0.2s; }
+.contact-section:nth-child(3) { animation-delay: 0.3s; }
+.contact-section:nth-child(4) { animation-delay: 0.4s; }
