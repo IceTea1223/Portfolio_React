@@ -22,7 +22,7 @@ import {
   Instagram,
   Facebook,
 } from "lucide-react";
-import "./contact.css";
+import "./Contact.css";
 import CTA from "../../conponent/CTA/CTA";
 import Footer from "../../conponent/Footer/Footer";
 

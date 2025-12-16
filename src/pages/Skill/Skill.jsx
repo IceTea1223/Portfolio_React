@@ -15,11 +15,11 @@ import {
   Target,
   Cpu,
 } from "lucide-react";
-
+import "./Skill.css";
 import CTA from "../../conponent/CTA/CTA";
 import Footer from "../../conponent/Footer/Footer";
 import skillsData from "../../Data/skills.js";
-export default function Skills() {
+export default function Skill() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
