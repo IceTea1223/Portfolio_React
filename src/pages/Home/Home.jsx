@@ -252,7 +252,7 @@ export default function Home() {
                         {/* Main image container */}
                         <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full overflow-hidden border-4 border-white shadow-xl animate-glow">
                           <img
-                            src="../src/assets/images/myimage.jpg"
+                            src="../../assets/images/myimage.JPG"
                             alt="HONG KIMCHHAY"
                             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                             loading="lazy"
