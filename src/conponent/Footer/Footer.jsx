@@ -30,7 +30,7 @@ function Footer() {
                 className="text-gray-600 hover:text-blue-600 transition-colors text-sm sm:text-base"
               >
                 {link.label}
-              </Link>
+              </Link> 
             ))}
           </nav>
         </div>

@@ -21,7 +21,7 @@ import {
 import "./Home.css";
 import CTA from "../../conponent/CTA/CTA";
 import projects from "../../Data/projects";
-import Footer from '../../conponent/Footer/Footer'
+import Footer from "../../conponent/Footer/Footer";
 import { PiTelegramLogoFill } from "react-icons/pi";
 
 export default function Home() {
@@ -58,7 +58,7 @@ export default function Home() {
   }, []);
 
   const featuredProjects = projects.filter((project) => project.featured);
-  
+
   const skills = [
     {
       icon: <Code className="w-5 h-5 sm:w-6 sm:h-6" />,
@@ -101,10 +101,15 @@ export default function Home() {
       <div className="hidden md:block fixed bottom-1/4 right-10 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-r from-purple-300/20 to-pink-300/20 rounded-full blur-3xl animate-pulse animate-moveUpDown delay-1000" />
 
       {/* Mobile Navigation with animation */}
-      <header className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200 lg:hidden transition-all duration-300 ${showAnimations ? 'animate-fadeIn' : 'opacity-0'}`}>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200 lg:hidden transition-all duration-300 ${showAnimations ? "animate-fadeIn" : "opacity-0"}`}
+      >
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <Link to="/" className="text-2xl font-bold text-blue-600 animate-scaleIn">
+            <Link
+              to="/"
+              className="text-2xl font-bold text-blue-600 animate-scaleIn"
+            >
               MyPortfolio
             </Link>
             <button
@@ -124,17 +129,19 @@ export default function Home() {
           {isMobileMenuOpen && (
             <div className="mt-4 pb-4 animate-fadeIn">
               <div className="flex flex-col space-y-3 stagger-children">
-                {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item, index) => (
-                  <Link
-                    key={item}
-                    to={`/${item.toLowerCase()}`}
-                    className="px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    {item}
-                  </Link>
-                ))}
+                {["Home", "Projects", "Skills", "About", "Contact"].map(
+                  (item, index) => (
+                    <Link
+                      key={item}
+                      to={`/${item.toLowerCase()}`}
+                      className="px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      {item}
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           )}
@@ -146,7 +153,9 @@ export default function Home() {
         <section className="lg:ms-[140px] flex justify-center px-4 sm:px-6 lg:px-8 pt-0 lg:pt-0">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className={`space-y-6 lg:space-y-8 ${showAnimations ? 'animate-fadeInUp' : 'opacity-0'}`}>
+              <div
+                className={`space-y-6 lg:space-y-8 ${showAnimations ? "animate-fadeInUp" : "opacity-0"}`}
+              >
                 {/* Badge with glow animation */}
                 <div className="inline-flex items-center px-3 py-1.5 lg:px-4 lg:py-2 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 border border-blue-200 animate-glow">
                   <Sparkles className="w-3 h-3 lg:w-4 lg:h-4 text-blue-600 mr-2 animate-spin-slow" />
@@ -158,7 +167,9 @@ export default function Home() {
                 {/* Title with typewriter effect */}
                 <div className="overflow-hidden">
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                    <span className="block text-gray-900 animate-slideInLeft">Hi, I'm</span>
+                    <span className="block text-gray-900 animate-slideInLeft">
+                      Hi, I'm
+                    </span>
                     <span className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mt-1 lg:mt-2 animate-slideInRight delay-300">
                       HONG KIMCHHAY
                     </span>
@@ -166,7 +177,9 @@ export default function Home() {
                 </div>
 
                 {/* Description with fade in */}
-                <p className={`text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl leading-relaxed ${showAnimations ? 'animate-fadeIn delay-500' : 'opacity-0'}`}>
+                <p
+                  className={`text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl leading-relaxed ${showAnimations ? "animate-fadeIn delay-500" : "opacity-0"}`}
+                >
                   I build exceptional digital experiences that are fast,
                   accessible, visually appealing, and responsive. Let's turn
                   your ideas into reality with clean code and innovative
@@ -174,7 +187,9 @@ export default function Home() {
                 </p>
 
                 {/* Buttons with staggered animation */}
-                <div className={`flex flex-col sm:flex-row gap-3 lg:gap-4 stagger-children ${showAnimations ? '' : 'opacity-0'}`}>
+                <div
+                  className={`flex flex-col sm:flex-row gap-3 lg:gap-4 stagger-children ${showAnimations ? "" : "opacity-0"}`}
+                >
                   <Link
                     to="/contact"
                     className="group inline-flex items-center justify-center px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl text-sm lg:text-base animate-dropIn"
@@ -193,7 +208,9 @@ export default function Home() {
                 </div>
 
                 {/* Social icons with bounce animation */}
-                <div className={`flex items-center justify-center lg:justify-start space-x-4 lg:space-x-6 pt-6 lg:pt-8 ${showAnimations ? 'animate-fadeIn delay-700' : 'opacity-0'}`}>
+                <div
+                  className={`flex items-center justify-center lg:justify-start space-x-4 lg:space-x-6 pt-6 lg:pt-8 ${showAnimations ? "animate-fadeIn delay-700" : "opacity-0"}`}
+                >
                   <a
                     href="https://github.com"
                     className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1000"
@@ -222,14 +239,14 @@ export default function Home() {
                   >
                     <Mail className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
                   </a>
-                   <a
+                  <a
                     href="mailto:hello@example.com"
                     className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1300"
                     aria-label="Email"
                   >
                     <Facebook className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
                   </a>
-                   <a
+                  <a
                     href="mailto:hello@example.com"
                     className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1300"
                     aria-label="Email"
@@ -240,7 +257,9 @@ export default function Home() {
               </div>
 
               {/* Profile image section with animations */}
-              <div className={`relative lg:block order-1 lg:order-2 mb-8 lg:mb-0 ${showAnimations ? 'animate-scaleIn delay-300' : 'opacity-0 scale-90'}`}>
+              <div
+                className={`relative lg:block order-1 lg:order-2 mb-8 lg:mb-0 ${showAnimations ? "animate-scaleIn delay-300" : "opacity-0 scale-90"}`}
+              >
                 <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px]">
                   {/* Main profile card with wave animation */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 backdrop-blur-sm rounded-3xl border border-white/30 shadow-2xl overflow-hidden animate-wave">
@@ -252,8 +271,7 @@ export default function Home() {
                         {/* Main image container */}
                         <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full overflow-hidden border-4 border-white shadow-xl animate-glow">
                           <img
-                            // src="../../assets/images/myimage.JPG"
-                            src="https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/577919989_1525348672046533_196920429385416654_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeF5EIxJcie6tgxceMbKcvfCySOyCqDufhrJI7IKoO5-Ghcl_gFFXGpylZa3GfXs-v46Br6W9Zx7VigbNVJD5uW2&_nc_ohc=Q-FTYySN4PIQ7kNvwGLTC18&_nc_oc=AdnIWA76zjNl7XJ_FaIsTK9bdvs0h1H_dr4Ph_9HbjlHcJkCmuAkzC5Td38prgV9w18&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=RlM8yVMyKnVjNS-bDnH3ww&oh=00_AflzP33N_gFxI5zExrwL02MKOo3wen2ODECH1bEDEwkaDQ&oe=69471057"
+                            src="https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/577919989_1525348672046533_196920429385416654_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF5EIxJcie6tgxceMbKcvfCySOyCqDufhrJI7IKoO5-Ghcl_gFFXGpylZa3GfXs-v46Br6W9Zx7VigbNVJD5uW2&_nc_ohc=faamwuEpMrkQ7kNvwGqmzi0&_nc_oc=AdlqG-gFSUsB511bnh5uwUFDH0r3Zbxsn3h65L9sa9tZVMi8iZC24r_c1-PnViNaWCQ&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=cGN4LkjzUVV0uIDZpwefSQ&oh=00_AfmUvOXnVRiKGmgd05_mxuMgFiP1-aTQ7H2Q-fyR9H5VZQ&oe=6953CED7"
                             alt="HONG KIMCHHAY"
                             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                             loading="lazy"
@@ -291,7 +309,10 @@ export default function Home() {
 
             {/* Scroll indicator with continuous bounce */}
             <div className="hidden lg:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-              <Link to="#skills" className="flex flex-col items-center group animate-pulse">
+              <Link
+                to="#skills"
+                className="flex flex-col items-center group animate-pulse"
+              >
                 <span className="text-sm text-gray-500 mb-2">
                   Scroll to explore
                 </span>
@@ -315,24 +336,25 @@ export default function Home() {
                 </span>
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                Mastering the tools and technologies that power modern web applications
+                Mastering the tools and technologies that power modern web
+                applications
               </p>
             </div>
 
             {/* Skills grid with staggered animation */}
-           <div
-  className="
+            <div
+              className="
     grid grid-cols-1
     sm:grid-cols-2
     lg:grid-cols-3
     gap-4 sm:gap-6 lg:gap-8
     justify-items-center
   "
->
-  {skills.map((skill, index) => (
-    <div
-      key={index}
-      className="
+            >
+              {skills.map((skill, index) => (
+                <div
+                  key={index}
+                  className="
         group w-full max-w-sm
         bg-white/80 backdrop-blur-sm
         rounded-xl sm:rounded-2xl
@@ -343,29 +365,29 @@ export default function Home() {
         hover:-translate-y-1 sm:hover:-translate-y-2
         hover:shadow-lg sm:hover:shadow-xl
       "
-      style={{ animationDelay: `${index * 0.2}s` }}
-    >
-      {/* Icon */}
-      <div className="mb-3 sm:mb-4 inline-flex p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-r from-blue-100 to-indigo-100 animate-pulse">
-        <div className="text-blue-600 animate-wiggle">
-          {skill.icon}
-        </div>
-      </div>
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  {/* Icon */}
+                  <div className="mb-3 sm:mb-4 inline-flex p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-r from-blue-100 to-indigo-100 animate-pulse">
+                    <div className="text-blue-600 animate-wiggle">
+                      {skill.icon}
+                    </div>
+                  </div>
 
-      {/* Title */}
-      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">
-        {skill.name}
-      </h3>
+                  {/* Title */}
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">
+                    {skill.name}
+                  </h3>
 
-      {/* Tech */}
-      <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-        {skill.tech}
-      </p>
+                  {/* Tech */}
+                  <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
+                    {skill.tech}
+                  </p>
 
-      {/* Progress bar */}
-      <div className="w-full bg-gray-200 rounded-full h-1.5 sm:h-2">
-        <div
-          className="
+                  {/* Progress bar */}
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 sm:h-2">
+                    <div
+                      className="
             bg-gradient-to-r from-blue-500 to-indigo-500
             h-1.5 sm:h-2
             rounded-full
@@ -373,18 +395,17 @@ export default function Home() {
             group-hover:scale-105 origin-left
             animate-shimmer
           "
-          style={{ width: skill.level }}
-        />
-      </div>
+                      style={{ width: skill.level }}
+                    />
+                  </div>
 
-      {/* Level */}
-      <span className="text-xs sm:text-sm font-medium text-blue-600 mt-1 sm:mt-2 block">
-        {skill.level}
-      </span>
-    </div>
-  ))}
-</div>
-
+                  {/* Level */}
+                  <span className="text-xs sm:text-sm font-medium text-blue-600 mt-1 sm:mt-2 block">
+                    {skill.level}
+                  </span>
+                </div>
+              ))}
+            </div>
 
             {/* View all link with fade in */}
             <div className="text-center mt-8 sm:mt-12 animate-fadeIn delay-1000">
@@ -497,16 +518,22 @@ export default function Home() {
 
                       {/* Stats with staggered fade in */}
                       <div className="grid grid-cols-3 gap-4 mb-6 stagger-children">
-                        {Object.entries(project.stats).map(([key, value], idx) => (
-                          <div key={key} className="text-center" style={{ animationDelay: `${idx * 0.1}s` }}>
-                            <div className="text-xl font-bold text-gray-900">
-                              {value}
+                        {Object.entries(project.stats).map(
+                          ([key, value], idx) => (
+                            <div
+                              key={key}
+                              className="text-center"
+                              style={{ animationDelay: `${idx * 0.1}s` }}
+                            >
+                              <div className="text-xl font-bold text-gray-900">
+                                {value}
+                              </div>
+                              <div className="text-xs text-gray-500 uppercase tracking-wider">
+                                {key}
+                              </div>
                             </div>
-                            <div className="text-xs text-gray-500 uppercase tracking-wider">
-                              {key}
-                            </div>
-                          </div>
-                        ))}
+                          )
+                        )}
                       </div>
 
                       {/* Tech Stack with wave effect */}

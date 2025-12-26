@@ -35,7 +35,7 @@ export default function Contact() {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitStatus, setSubmitStatus] = useState(null); // null, 'success', 'error'
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -45,6 +45,11 @@ export default function Contact() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  // Telegram Bot Configuration
+  // Replace with your actual bot token and chat ID
+  const TELEGRAM_BOT_TOKEN = "8377724750:AAH3bxnxVPq-rPH_KQzCrUE224KYjkMyy5s";
+  const TELEGRAM_CHAT_ID = "1397865732"; // Your Telegram chat ID
 
   // Contact info
   const contactInfo = [
@@ -164,6 +169,33 @@ export default function Contact() {
     return newErrors;
   };
 
+  // Function to send message to Telegram
+  const sendToTelegram = async (formData) => {
+    try {
+      const message = `📩 *New Contact Form Submission*%0A%0A
+*Name:* ${encodeURIComponent(formData.name)}%0A
+*Email:* ${encodeURIComponent(formData.email)}%0A
+*Subject:* ${encodeURIComponent(formData.subject)}%0A%0A
+*Message:*%0A${encodeURIComponent(formData.message)}%0A%0A
+*Time:* ${encodeURIComponent(new Date().toLocaleString())}`;
+
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${message}&parse_mode=Markdown`;
+
+      const response = await fetch(url);
+      
+      if (response.ok) {
+        return { success: true };
+      } else {
+        const errorData = await response.json();
+        console.error('Telegram API error:', errorData);
+        return { success: false, error: 'Failed to send to Telegram' };
+      }
+    } catch (error) {
+      console.error('Error sending to Telegram:', error);
+      return { success: false, error: error.message };
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -175,18 +207,61 @@ export default function Contact() {
 
     setIsSubmitting(true);
     setErrors({});
+    setSubmitStatus(null);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Send to Telegram
+      const telegramResult = await sendToTelegram(formData);
+
+      if (telegramResult.success) {
+        // Send confirmation email (optional)
+        const emailData = {
+          service_id: "service_8k90u8e",
+          template_id: "template_2k27x9l",
+          user_id: "EsIQgv_Z9l5p1S7PC",
+          template_params: {
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            to_email: "hongkimchhay286@gmail.com"
+          }
+        };
+
+        try {
+          await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(emailData),
+          });
+        } catch (emailError) {
+          console.log("Email sending optional, continuing...", emailError);
+        }
+
+        setSubmitStatus("success");
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus(null);
+        }, 5000);
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus("error");
+    } finally {
       setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
-    }, 2000);
+    }
   };
 
   const handleChange = (e) => {
@@ -197,6 +272,27 @@ export default function Contact() {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
+    
+    // Clear status message when user starts typing
+    if (submitStatus) {
+      setSubmitStatus(null);
+    }
+  };
+
+  // Quick responses for testing
+  const quickResponses = [
+    { text: "I want a website", subject: "Website Development" },
+    { text: "Mobile app project", subject: "Mobile App Development" },
+    { text: "Need UI/UX design", subject: "Design Project" },
+    { text: "Looking for consultation", subject: "Consultation Request" }
+  ];
+
+  const applyQuickResponse = (response) => {
+    setFormData(prev => ({
+      ...prev,
+      subject: response.subject,
+      message: response.text
+    }));
   };
 
   return (
@@ -237,6 +333,20 @@ export default function Contact() {
                 to bring your ideas to life with innovative solutions and
                 cutting-edge technology.
               </p>
+
+              {/* Quick Response Chips */}
+              <div className="flex flex-wrap justify-center gap-3 mb-4">
+                {quickResponses.map((response, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => applyQuickResponse(response)}
+                    className="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full hover:bg-blue-50 hover:border-blue-200 transition-colors text-sm font-medium text-gray-700 hover:text-blue-700"
+                  >
+                    {response.text}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -291,9 +401,12 @@ export default function Contact() {
                     Send a Message
                   </h2>
                   <p className="text-gray-600">
-                    Fill out the form below and I'll get back to you within 24
-                    hours
+                    Fill out the form below and I'll get back to you within 24 hours
                   </p>
+                  <div className="mt-2 text-sm text-gray-500 flex items-center">
+                    <CheckCircle className="w-4 h-4 mr-1 text-green-500" />
+                    Messages are sent directly to my Telegram
+                  </div>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -314,6 +427,7 @@ export default function Contact() {
                         errors.name ? "border-red-300" : "border-gray-300"
                       } focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all`}
                       placeholder="John Doe"
+                      disabled={isSubmitting}
                     />
                     {errors.name && (
                       <div className="flex items-center text-red-600 text-sm mt-2">
@@ -340,6 +454,7 @@ export default function Contact() {
                         errors.email ? "border-red-300" : "border-gray-300"
                       } focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all`}
                       placeholder="john@example.com"
+                      disabled={isSubmitting}
                     />
                     {errors.email && (
                       <div className="flex items-center text-red-600 text-sm mt-2">
@@ -366,6 +481,7 @@ export default function Contact() {
                         errors.subject ? "border-red-300" : "border-gray-300"
                       } focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all`}
                       placeholder="Project Inquiry"
+                      disabled={isSubmitting}
                     />
                     {errors.subject && (
                       <div className="flex items-center text-red-600 text-sm mt-2">
@@ -392,7 +508,16 @@ export default function Contact() {
                         errors.message ? "border-red-300" : "border-gray-300"
                       } focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none`}
                       placeholder="Tell me about your project..."
+                      disabled={isSubmitting}
                     />
+                    <div className="flex justify-between items-center mt-1">
+                      <div className="text-sm text-gray-500">
+                        Minimum 10 characters
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {formData.message.length}/500
+                      </div>
+                    </div>
                     {errors.message && (
                       <div className="flex items-center text-red-600 text-sm mt-2">
                         <AlertCircle className="w-4 h-4 mr-1" />
@@ -406,41 +531,59 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`group w-full inline-flex items-center justify-center px-8 py-4 bg-linear-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl ${
-                        isSubmitting ? "opacity-75 cursor-not-allowed" : ""
-                      }`}
+                      className={`group w-full inline-flex items-center justify-center px-8 py-4 bg-linear-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed disabled:transform-none disabled:hover:shadow-lg`}
                     >
                       {isSubmitting ? (
                         <>
                           <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Sending...
+                          Sending to Telegram...
                         </>
                       ) : (
                         <>
-                          Send Message
+                          Send Message to Telegram
                           <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </>
                       )}
                     </button>
                   </div>
 
-                  {/* Success Message */}
+                  {/* Status Messages */}
                   {submitStatus === "success" && (
                     <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
                       <div className="flex items-center">
                         <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                         <div>
                           <div className="font-medium text-green-800">
-                            Message Sent Successfully!
+                            Message Sent to Telegram Successfully!
                           </div>
                           <div className="text-sm text-green-700 mt-1">
-                            Thank you for your message. I'll get back to you
-                            within 24 hours.
+                            Your message has been sent to my Telegram. I'll get back to you within 24 hours.
                           </div>
                         </div>
                       </div>
                     </div>
                   )}
+
+                  {submitStatus === "error" && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                      <div className="flex items-center">
+                        <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
+                        <div>
+                          <div className="font-medium text-red-800">
+                            Sending Failed
+                          </div>
+                          <div className="text-sm text-red-700 mt-1">
+                            There was an error sending your message. Please try again or contact me directly via email.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Privacy Note */}
+                  <div className="text-xs text-gray-500 text-center pt-2">
+                    Your information is secure and will only be used to respond to your inquiry.
+                  </div>
                 </form>
               </div>
 
@@ -492,24 +635,22 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Calendar Booking */}
+                {/* Telegram Notification */}
                 <div className="mt-10 p-6 bg-linear-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                    Schedule a Call
+                    Instant Telegram Notification
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Prefer to chat live? Book a 30-minute discovery call to
-                    discuss your project.
+                    When you submit the form, I receive an instant notification on my Telegram with all your details.
                   </p>
-                  <a
-                    href="https://calendly.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-linear-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
-                  >
-                    Book a Call
-                    <ExternalLink className="ml-2 w-5 h-5" />
-                  </a>
+                  <div className="flex items-center text-sm text-gray-500 mb-2">
+                    <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
+                    Instant delivery to my phone
+                  </div>
+                  <div className="flex items-center text-sm text-gray-500">
+                    <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
+                    Faster response time
+                  </div>
                 </div>
               </div>
             </div>
@@ -526,7 +667,7 @@ export default function Contact() {
                 </span>
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-                Based in San Francisco, working with clients worldwide
+                Based in Phnom Penh, working with clients worldwide
               </p>
             </div>
 
@@ -569,13 +710,13 @@ export default function Contact() {
                     <div className="flex justify-between items-center py-2 border-b border-gray-100">
                       <span className="text-gray-600">Monday - Friday</span>
                       <span className="font-medium text-gray-900">
-                        9:00 AM - 6:00 PM PST
+                        9:00 AM - 6:00 PM (ICT)
                       </span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-gray-100">
                       <span className="text-gray-600">Saturday</span>
                       <span className="font-medium text-gray-900">
-                        10:00 AM - 2:00 PM PST
+                        10:00 AM - 2:00 PM (ICT)
                       </span>
                     </div>
                     <div className="flex justify-between items-center py-2">
@@ -593,19 +734,19 @@ export default function Contact() {
                     <div className="flex items-center">
                       <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                       <span className="text-gray-700">
-                        Email response within 24 hours
+                        Telegram response within 2-4 hours
                       </span>
                     </div>
                     <div className="flex items-center">
                       <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                       <span className="text-gray-700">
-                        Urgent requests: 4-6 hours
+                        Urgent requests: 1-2 hours via Telegram
                       </span>
                     </div>
                     <div className="flex items-center">
                       <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                       <span className="text-gray-700">
-                        Weekend responses: Monday morning
+                        Email responses: Within 24 hours
                       </span>
                     </div>
                   </div>
@@ -616,14 +757,13 @@ export default function Contact() {
                     Preferred Contact Method
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    For project inquiries, please use the contact form above.
-                    For quick questions, email is the fastest way to reach me.
+                    For fastest response, use the contact form above which sends directly to my Telegram. For quick questions, Telegram is the fastest way to reach me.
                   </p>
                   <a
-                    href="mailto:hello@example.com"
+                    href="mailto:hongkimchhay286@email.com"
                     className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
                   >
-                    hello@example.com
+                    hongkimchhay286@email.com
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </a>
                 </div>

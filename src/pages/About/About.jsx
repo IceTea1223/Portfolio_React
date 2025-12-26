@@ -20,7 +20,6 @@ import {
 import "./About.css";
 import CTA from "../../conponent/CTA/CTA";
 import Footer from "../../conponent/Footer/Footer";
-import { BsTelegram } from "react-icons/bs";
 import { PiTelegramLogoFill } from "react-icons/pi";
 
 export default function About() {
