@@ -28,15 +28,15 @@ const skillsData = {
       color: "from-blue-500 to-cyan-500",
       description: "Utility-first CSS framework for rapid UI development",
     },
-    {
-      name: "Redux",
-      level: 70,
-      experience: "0 years",
-      projects: 0,
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
-      color: "from-blue-500 to-cyan-500",
-      description: "State management for complex JavaScript applications",
-    },
+    // {
+    //   name: "Redux",
+    //   level: 70,
+    //   experience: "0 years",
+    //   projects: 0,
+    //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
+    //   color: "from-blue-500 to-cyan-500",
+    //   description: "State management for complex JavaScript applications",
+    // },
   ],
   backend: [
     {

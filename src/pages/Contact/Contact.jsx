@@ -88,31 +88,19 @@ export default function Contact() {
     {
       icon: <Github className="w-5 h-5" />,
       label: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/IceTea1223",
       color: "hover:bg-gray-900",
-    },
-    {
-      icon: <Linkedin className="w-5 h-5" />,
-      label: "LinkedIn",
-      href: "https://linkedin.com",
-      color: "hover:bg-blue-700",
-    },
-    {
-      icon: <Twitter className="w-5 h-5" />,
-      label: "Twitter",
-      href: "https://twitter.com",
-      color: "hover:bg-sky-500",
     },
     {
       icon: <Instagram className="w-5 h-5" />,
       label: "Instagram",
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/hong_kim_chhay/",
       color: "hover:bg-pink-600",
     },
     {
       icon: <Facebook className="w-5 h-5" />,
       label: "Facebook",
-      href: "https://facebook.com",
+      href: "https://web.facebook.com/Mr.Kimchhay",
       color: "hover:bg-blue-600",
     },
   ];

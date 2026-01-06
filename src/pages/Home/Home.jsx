@@ -17,6 +17,7 @@ import {
   Calendar,
   Sparkles,
   Facebook,
+  Instagram,
 } from "lucide-react";
 import "./Home.css";
 import CTA from "../../conponent/CTA/CTA";
@@ -64,19 +65,19 @@ export default function Home() {
       icon: <Code className="w-5 h-5 sm:w-6 sm:h-6" />,
       name: "Frontend",
       level: "80%",
-      tech: "React, Vue, Next.js",
+      tech: "HTML, CSS, JavaScript, Boostrap, Tailwind, ReactJs, VueJs",
     },
     {
       icon: <Database className="w-5 h-5 sm:w-6 sm:h-6" />,
       name: "Backend",
       level: "70%",
-      tech: "Node.js, Python, Java",
+      tech: "PHP, Laravel, Node.js, ExpressJs, PortgreSQL,",
     },
     {
       icon: <Palette className="w-5 h-5 sm:w-6 sm:h-6" />,
       name: "UI/UX Design",
       level: "65%",
-      tech: "Figma, Tailwind, Framer",
+      tech: "Figma, Framer",
     },
     // {
     //   icon: <Cloud className="w-5 h-5 sm:w-6 sm:h-6" />,
@@ -212,28 +213,14 @@ export default function Home() {
                   className={`flex items-center justify-center lg:justify-start space-x-4 lg:space-x-6 pt-6 lg:pt-8 ${showAnimations ? "animate-fadeIn delay-700" : "opacity-0"}`}
                 >
                   <a
-                    href="https://github.com"
+                    href="https://github.com/IceTea1223"
                     className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1000"
                     aria-label="GitHub"
                   >
                     <Github className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
                   </a>
                   <a
-                    href="https://linkedin.com"
-                    className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1100"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
-                  </a>
-                  <a
-                    href="https://twitter.com"
-                    className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1200"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
-                  </a>
-                  <a
-                    href="mailto:hello@example.com"
+                    href="mailto:hongkimchhhay286@gmail.com"
                     className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1300"
                     aria-label="Email"
                   >
@@ -242,12 +229,19 @@ export default function Home() {
                   <a
                     href="mailto:hello@example.com"
                     className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1300"
-                    aria-label="Email"
+                    aria-label="Facebook"
                   >
                     <Facebook className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
                   </a>
+                    <a
+                    href="https://www.instagram.com/hong_kim_chhay/"
+                    className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1300"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
+                  </a>
                   <a
-                    href="mailto:hello@example.com"
+                    href="https://t.me/hongkimchhay"
                     className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1300"
                     aria-label="Email"
                   >
@@ -271,7 +265,7 @@ export default function Home() {
                         {/* Main image container */}
                         <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full overflow-hidden border-4 border-white shadow-xl animate-glow">
                           <img
-                            src="https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/577919989_1525348672046533_196920429385416654_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF5EIxJcie6tgxceMbKcvfCySOyCqDufhrJI7IKoO5-Ghcl_gFFXGpylZa3GfXs-v46Br6W9Zx7VigbNVJD5uW2&_nc_ohc=faamwuEpMrkQ7kNvwGqmzi0&_nc_oc=AdlqG-gFSUsB511bnh5uwUFDH0r3Zbxsn3h65L9sa9tZVMi8iZC24r_c1-PnViNaWCQ&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=cGN4LkjzUVV0uIDZpwefSQ&oh=00_AfmUvOXnVRiKGmgd05_mxuMgFiP1-aTQ7H2Q-fyR9H5VZQ&oe=6953CED7"
+                            src="https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/577919989_1525348672046533_196920429385416654_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF5EIxJcie6tgxceMbKcvfCySOyCqDufhrJI7IKoO5-Ghcl_gFFXGpylZa3GfXs-v46Br6W9Zx7VigbNVJD5uW2&_nc_ohc=4VU7pKX3BBAQ7kNvwF6k11l&_nc_oc=AdlgZ7AKeT8t6HVT4wel_VrD-ti1PDQW-MRNQQ4W2dqAH67hctE-8u3RipaxflxE8N8&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=BEJaM7IJY346JMkL-9rC5g&oh=00_AfpyAWKQDX4fe6PwXQdjYfhZTybIpyLPEKailNm2D_HmeQ&oe=69628797"
                             alt="HONG KIMCHHAY"
                             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                             loading="lazy"
@@ -515,26 +509,6 @@ export default function Home() {
                       <p className="text-gray-600 mb-6 animate-fadeIn delay-400">
                         {project.description}
                       </p>
-
-                      {/* Stats with staggered fade in */}
-                      <div className="grid grid-cols-3 gap-4 mb-6 stagger-children">
-                        {Object.entries(project.stats).map(
-                          ([key, value], idx) => (
-                            <div
-                              key={key}
-                              className="text-center"
-                              style={{ animationDelay: `${idx * 0.1}s` }}
-                            >
-                              <div className="text-xl font-bold text-gray-900">
-                                {value}
-                              </div>
-                              <div className="text-xs text-gray-500 uppercase tracking-wider">
-                                {key}
-                              </div>
-                            </div>
-                          )
-                        )}
-                      </div>
 
                       {/* Tech Stack with wave effect */}
                       <div className="flex flex-wrap gap-2">
