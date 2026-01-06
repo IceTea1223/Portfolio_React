@@ -227,7 +227,7 @@ export default function Home() {
                     <Mail className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
                   </a>
                   <a
-                    href="mailto:hello@example.com"
+                    href="https://web.facebook.com/Mr.Kimchhay"
                     className="group p-2 lg:p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-bounce delay-1300"
                     aria-label="Facebook"
                   >
