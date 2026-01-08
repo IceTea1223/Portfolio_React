@@ -464,7 +464,7 @@ export default function Skill() {
         </section>
 
         {/* Methodology Section */}
-        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        {/* <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12 lg:mb-16">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -545,7 +545,7 @@ export default function Skill() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Hero Section */}
         <section className="pt-20 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">

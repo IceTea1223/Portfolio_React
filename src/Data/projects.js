@@ -1,21 +1,50 @@
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description:
-      "Full-featured online shopping platform with real-time inventory, payment processing, and admin dashboard.",
-    category: ["web", "fullstack"],
-    tech: ["React", "Node.js", "MongoDB", "Stripe", "Redis"],
+    title: "Auto Car",
+    description: "Dynamic Website about Models Car,",
+    category: ["web", "Frontend"],
+    tech: ["React", "Tailwind"],
     status: "Live",
     year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    liveUrl: "https://demo-ecommerce.com",
-    githubUrl: "https://github.com/username/ecommerce",
+    image: "../../src/assets/images/web1.png",
+    liveUrl: "https://auto-car-react-js-pwqt.vercel.app/",
+    githubUrl: "https://github.com/IceTea1223/Auto-Car-ReactJs-.git",
+    featured: true,
+
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    id: 2,
+    title: "Movie",
+    description: "If you want date with specail person can view my website.",
+    category: ["web", "Frontend"],
+    tech: ["HTML", "CSS" , "Bootstrap"],
+    status: "Live",
+    year: "2024",
+    image: "../../src/assets/images/web2.png",
+    liveUrl: "https://movie-project-168.vercel.app/",
+    githubUrl: "https://github.com/IceTea1223/Movie_project.git",
+    featured: true,
+
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    id: 1,
+    title: "Food",
+    description: "If you want order food can view my website.",
+    category: ["web", "Frontend"],
+    tech: ["HTML", "CSS" , "Bootstrap"],
+    status: "Live",
+    year: "2024",
+    image: "../../src/assets/images/web3.png",
+    liveUrl: "https://food-project168.vercel.app/",
+    githubUrl: "https://github.com/IceTea1223/Food-project.git",
     featured: true,
 
     color: "from-blue-500 to-cyan-500",
   },
 ];
 
-export default projects;
+
+ export default projects;

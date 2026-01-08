@@ -58,16 +58,16 @@ const skillsData = {
       description:
         "PHP framework for elegant and rapid web application development",
     },
-    {
-      name: "Spring Boot",
-      level: 70,
-      experience: "0 years",
-      projects: 0,
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
-      color: "from-green-500 to-lime-500",
-      description:
-        "Java framework for building production-ready backend services",
-    },
+    // {
+    //   name: "Spring Boot",
+    //   level: 70,
+    //   experience: "0 years",
+    //   projects: 0,
+    //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+    //   color: "from-green-500 to-lime-500",
+    //   description:
+    //     "Java framework for building production-ready backend services",
+    // },
     {
       name: "Node.js",
       level: 70,
@@ -87,15 +87,15 @@ const skillsData = {
       color: "from-blue-500 to-cyan-500",
       description: "Powerful open-source relational database",
     },
-    {
-      name: "Express.js",
-      level: 65,
-      experience: "0 years",
-      projects: 1,
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-      color: "from-blue-500 to-cyan-500",
-      description: "Fast, unopinionated web framework for Node.js",
-    },
+    // {
+    //   name: "Express.js",
+    //   level: 65,
+    //   experience: "0 years",
+    //   projects: 1,
+    //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    //   color: "from-blue-500 to-cyan-500",
+    //   description: "Fast, unopinionated web framework for Node.js",
+    // },
     {
       name: "PHP",
       level: 80,
